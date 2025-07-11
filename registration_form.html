@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Miss World Registration Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap');
+
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f9f2f7, #fdeff1);
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      color: #5a2a52;
+    }
+
+    form {
+      background: #fff0f7;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 15px;
+      padding: 40px 50px;
+      box-shadow: 0 15px 40px rgba(134, 64, 121, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    form:hover {
+      box-shadow: 0 25px 60px rgba(134, 64, 121, 0.45);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #9c4160;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 3px #f7c7d9;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      margin-top: 20px;
+      color: #7a3d66;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #d48aaf;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      background: #fff0f7;
+      color: #5a2a52;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      resize: vertical;
+      box-shadow: inset 1px 1px 6px rgba(255, 255, 255, 0.7);
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus,
+    input[type="file"]:focus {
+      outline: none;
+      border-color: #a63f70;
+      box-shadow: 0 0 8px 2px #d16a9e;
+      background: #f7d6e2;
+      color: #381b30;
+    }
+
+    textarea {
+      min-height: 80px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(45deg, #b7457d, #d74a89);
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 30px;
+      width: 100%;
+      box-shadow: 0 8px 15px rgba(215, 74, 137, 0.6);
+      transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      letter-spacing: 2px;
+      font-family: 'Playfair Display', serif;
+      text-transform: uppercase;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(45deg, #d74a89, #b7457d);
+      box-shadow: 0 15px 25px rgba(215, 74, 137, 0.9);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      form {
+        padding: 30px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<form action="/submit_registration" method="post" enctype="multipart/form-data" autocomplete="off">
+  <h2>Miss World Registration Form</h2>
+
+  <!-- Personal Information -->
+  <label for="fullname">Full Name</label>
+  <input type="text" id="fullname" name="fullname" required placeholder="Your full name" />
+
+  <label for="dob">Date of Birth</label>
+  <input type="date" id="dob" name="dob" required />
+
+  <label for="age">Age</label>
+  <input type="number" id="age" name="age" min="18" max="30" required placeholder="Between 18 and 30" />
+
+  <label for="nationality">Nationality</label>
+  <input type="text" id="nationality" name="nationality" required placeholder="Your nationality" />
+
+  <!-- Contact Info -->
+  <label for="email">Email Address</label>
+  <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+
+  <label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" pattern="[0-9+]{10,15}" required placeholder="+1234567890" />
+
+  <label for="address">Home Address</label>
+  <textarea id="address" name="address" rows="3" required placeholder="Your home address"></textarea>
+
+  <!-- Physical Attributes -->
+  <label for="height">Height (cm)</label>
+  <input type="number" id="height" name="height" min="150" max="200" required placeholder="e.g., 170" />
+
+  <label for="weight">Weight (kg)</label>
+  <input type="number" id="weight" name="weight" min="40" max="100" required placeholder="e.g., 55" />
+
+  <label for="eyeColor">Eye Color</label>
+  <input type="text" id="eyeColor" name="eyeColor" required placeholder="e.g., Brown" />
+
+  <label for="hairColor">Hair Color</label>
+  <input type="text" id="hairColor" name="hairColor" required placeholder="e.g., Black" />
+
+  <!-- New: Measurements -->
+  <label for="bust">Bust (cm)</label>
+  <input type="number" id="bust" name="bust" min="70" max="120" placeholder="e.g., 90" />
+
+  <label for="waist">Waist (cm)</label>
+  <input type="number" id="waist" name="waist" min="50" max="90" placeholder="e.g., 60" />
+
+  <label for="hips">Hips (cm)</label>
+  <input type="number" id="hips" name="hips" min="70" max="120" placeholder="e.g., 95" />
+
+  <!-- Education & Career -->
+  <label for="education">Highest Education Qualification</label>
+  <input type="text" id="education" name="education" required placeholder="e.g., Bachelor's Degree" />
+
+  <label for="occupation">Current Occupation</label>
+  <input type="text" id="occupation" name="occupation" placeholder="Optional" />
+
+  <!-- New: Marital Status -->
+  <label for="maritalStatus">Marital Status</label>
+  <select id="maritalStatus" name="maritalStatus" required>
+    <option value="" disabled selected>Select your status</option>
+    <option value="single">Single</option>
+    <option value="married">Married</option>
+    <option value="divorced">Divorced</option>
+    <option value="widowed">Widowed</option>
+  </select>
+
+  <!-- New: Languages Spoken -->
+  <label for="languages">Languages Spoken</label>
+  <input type="text" id="languages" name="languages" placeholder="E.g., English, Spanish" />
+
+  <!-- New: Hobbies/Interests -->
+  <label for="hobbies">Hobbies / Interests</label>
+  <textarea id="hobbies" name="hobbies" rows="3" placeholder="What do you enjoy doing?"></textarea>
+
+  <!-- New: Favorite Causes -->
+  <label for="causes">Favorite Causes / Charity Work</label>
+  <textarea id="causes" name="causes" rows="3" placeholder="Any charity or causes you support"></textarea>
+
+  <!-- New: Social Media Profiles -->
+  <label for="instagram">Instagram Profile</label>
+  <input type="text" id="instagram" name="instagram" placeholder="https://instagram.com/yourprofile" />
+
+  <label for="facebook">Facebook Profile</label>
+  <input type="text" id="facebook" name="facebook" placeholder="https://facebook.com/yourprofile" />
+
+  <!-- New: Emergency Contact -->
+  <label for="emergencyName">Emergency Contact Name</label>
+  <input type="text" id="emergencyName" name="emergencyName" placeholder="Full name" />
+
+  <label for="emergencyPhone">Emergency Contact Phone</label>
+  <input type="tel" id="emergencyPhone" name="emergencyPhone" pattern="[0-9+]{10,15}" placeholder="+1234567890" />
+
+  <!-- New: T-shirt Size -->
+  <label for="tshirtSize">T-shirt Size</label>
+  <select id="tshirtSize" name="tshirtSize">
+    <option value="" disabled selected>Select your size</option>
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+  </select>
+
+  <!-- Other Info -->
+  <label for="bio">Brief Bio / About You</label>
+  <textarea id="bio" name="bio" rows="4" required placeholder="Tell us about yourself"></textarea>
+
+  <label for="achievements">Notable Achievements</label>
+  <textarea id="achievements" name="achievements" rows="3" placeholder="Any awards, recognitions..."></textarea>
+
+  <!-- File Uploads -->
+  <label for="photo">Upload Profile Photo</label>
+  <input type="file" id="photo" name="photo" accept="image/*" required />
+
+  <label for="resume">Upload Resume (PDF)</label>
+  <input type="file" id="resume" name="resume" accept=".pdf" />
+
+  <!-- Submit -->
+  <input type="submit" value="Register" />
+</form>
+
+</body>
+</html>
+
